@@ -5,30 +5,33 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <script async src="../javascript/index.js"></script>
 
-    <script>
-        function replace() {
-            var text = document.getElementById("textarea").value;
+    <script>function replace() {
+
+            var text = document.getElementById('list').innerHTML;
+
 
             if (text == "") {
-                document.getElementById("textarea").value = "I am 21 Years Old";
+                document.getElementById('list').innerHTML = "I am 21 Years Old";
+                document.getElementById("button").innerHTML = "Keep Clicking!"
             }
             else if (text == "I am 21 Years Old") {
-                document.getElementById("textarea").value = text + "\nI am a Senior at SDSU";
+                document.getElementById("list").innerHTML = text + "<br>I am a Senior at SDSU";
             }
-            else if (text == "I am 21 Years Old\nI am a Senior at SDSU") {
-                document.getElementById("textarea").value = text + "\nI am a full-stack Software Developer";
+            else if (text == "I am 21 Years Old<br>I am a Senior at SDSU") {
+                document.getElementById("list").innerHTML = text + "<br>I am a full-stack Software Developer"; 
             }
-            else if (text == "I am 21 Years Old\nI am a Senior at SDSU\nI am a full-stack Software Developer") {
-                document.getElementById("textarea").value = text + "\nI am a Leader";
+            else if (text == "I am 21 Years Old<br>I am a Senior at SDSU<br>I am a full-stack Software Developer") {
+                document.getElementById("list").innerHTML = text + "<br>I am a Leader";
             }
-            else if (text == "I am 21 Years Old\nI am a Senior at SDSU\nI am a full-stack Software Developer\nI am a Leader") {
-                document.getElementById("textarea").value = text + "\nI am eager to learn";
+            else if (text == "I am 21 Years Old<br>I am a Senior at SDSU<br>I am a full-stack Software Developer<br>I am a Leader") {
+                document.getElementById("list").innerHTML = text + "<br>I am eager to learn";
             }
-            else if (text == "I am 21 Years Old\nI am a Senior at SDSU\nI am a full-stack Software Developer\nI am a Leader\nI am eager to learn") {
-                document.getElementById("textarea").value = text + "\nI am excited to make a difference";
+            else if (text == "I am 21 Years Old<br>I am a Senior at SDSU<br>I am a full-stack Software Developer<br>I am a Leader<br>I am eager to learn") {
+                document.getElementById("list").innerHTML = text + "<br>I am excited to make a difference";
             }
-            else if (text == "I am 21 Years Old\nI am a Senior at SDSU\nI am a full-stack Software Developer\nI am a Leader\nI am eager to learn\nI am excited to make a difference") {
-                document.getElementById("textarea").value = text + "\nand... I look forward to hearing from you soon!";
+            else if (text == "I am 21 Years Old<br>I am a Senior at SDSU<br>I am a full-stack Software Developer<br>I am a Leader<br>I am eager to learn<br>I am excited to make a difference") {
+                document.getElementById("list").innerHTML = text + "<br>and... I look forward to hearing from you soon!";
+                document.getElementById("button").innerHTML = "All Done!";
             }
         }
     </script>
@@ -56,13 +59,10 @@
             <button id="button" onclick="replace();">Click Here to find out!</button>
             <br>
 
-
-            <textarea rows="7" cols="50" id="textarea"></textarea>
-
-           
+            <p id='list'></p>
 
         </div>
-        </div>
+    </div>
 
     <footer>
         <p>Created by: Jacob Byerline</p>
@@ -72,6 +72,7 @@
             </a>Cell: (619)341-9322
         </p>
     </footer>
+
 
 </body>
 </html>
