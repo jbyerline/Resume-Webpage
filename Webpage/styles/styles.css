@@ -5,7 +5,6 @@
 
 body {
     text-align: center;
-    background-color: #ffdfc7;
 }
 
 div {
@@ -13,8 +12,10 @@ div {
 }
 
 * {
-    font-family:SF;
+    font-family: SF;
+    background-color: #ffdfc7;
 }
+
 
 .image-section {
     display: flex;
@@ -24,16 +25,17 @@ div {
 .section-style {
     margin-right: 25px;
     margin-left: 25px;
-    background-color: white;
+
 }
 
 button {
-    display: inline-block;
-    height: 300px;
+    display: block;
+    height: 25px;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     vertical-align: top;
     width: 300px;
+    
 }
 
 #image img {
@@ -42,3 +44,50 @@ button {
     width: 300px;
 }
 
+a {
+    color: black
+}
+
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:focus {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover, a:active {
+        text-decoration: none;
+        color: black
+    }
+
+.container {
+    height: 500px;
+    position: relative;
+    border: none;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+textarea {
+    border: none;
+    white-space: normal;
+    text-align: justify;
+    -moz-text-align-last: center; /* Firefox 12+ */
+    text-align-last: center;
+    font-size: medium;
+}

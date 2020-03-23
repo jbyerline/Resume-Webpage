@@ -1,41 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Jacob's Porfolio</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-    <script async src="./javascript/index.js"></script>
+    <title>About Me</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script async src="../javascript/index.js"></script>
+
+    <script>
+        function replace() {
+            var text = document.getElementById("textarea").value;
+
+            if (text == "") {
+                document.getElementById("textarea").value = "I am 21 Years Old";
+            }
+            else if (text == "I am 21 Years Old") {
+                document.getElementById("textarea").value = text + "\nI am a Senior at SDSU";
+            }
+            else if (text == "I am 21 Years Old\nI am a Senior at SDSU") {
+                document.getElementById("textarea").value = text + "\nI am a full-stack Software Developer";
+            }
+            else if (text == "I am 21 Years Old\nI am a Senior at SDSU\nI am a full-stack Software Developer") {
+                document.getElementById("textarea").value = text + "\nI am a Leader";
+            }
+            else if (text == "I am 21 Years Old\nI am a Senior at SDSU\nI am a full-stack Software Developer\nI am a Leader") {
+                document.getElementById("textarea").value = text + "\nI am eager to learn";
+            }
+            else if (text == "I am 21 Years Old\nI am a Senior at SDSU\nI am a full-stack Software Developer\nI am a Leader\nI am eager to learn") {
+                document.getElementById("textarea").value = text + "\nI am excited to make a difference";
+            }
+            else if (text == "I am 21 Years Old\nI am a Senior at SDSU\nI am a full-stack Software Developer\nI am a Leader\nI am eager to learn\nI am excited to make a difference") {
+                document.getElementById("textarea").value = text + "\nand... I look forward to hearing from you soon!";
+            }
+        }
+    </script>
+
 </head>
 <body>
-    <h1>Jacob Byerline's Porfolio</h1>
+
+    <h1>
+        <a href="../index.html">Jacob Byerline's Porfolio</a>
+    </h1>
+
     <h2>About Me</h2>
     <h4 id='date'></h4>
- 
-    
 
-
-    <style>
-        .container {
-            height: 500px;
-            position: relative;
-            border: none;
-        }
-
-        .center {
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-    </style>
 
     <div class="container">
         <div class="center">
             <p> Hello </p>
+            <br>
             <p> I see you have stumbled across my webpage. </p>
+            <p> Well if you have come this far, hopefully you have taken some interest in me. </p>
+            <p> Who am I? </p>
+
+
+            <button id="button" onclick="replace();">Click Here to find out!</button>
+            <br>
+
+
+            <textarea rows="7" cols="50" id="textarea"></textarea>
+
+           
+
         </div>
-    </div>
+        </div>
+
+    <footer>
+        <p>Created by: Jacob Byerline</p>
+        <p>
+            Contact information:<br> Email: <a href="mailto:jbyerline@gmail.com">
+                jbyerline@gmail.com<br>
+            </a>Cell: (619)341-9322
+        </p>
+    </footer>
 
 </body>
 </html>
