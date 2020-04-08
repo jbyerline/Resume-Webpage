@@ -37,6 +37,16 @@ button {
     width: 300px;
     
 }
+.textinput {
+    display: block;
+    height: 250px;
+    padding: 0;
+    margin: 0 auto;
+    vertical-align: top;
+    width: 300px;
+    border: solid;
+    text-align: center;
+}
 
 #image img {
     display: block;

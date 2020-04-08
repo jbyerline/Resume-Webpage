@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encryption</title>
+    <link rel="icon" href="../images/J-Icon.ico" type="image/ico">
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script async src="../javascript/index.js"></script>
+    <script>function Encrypt() {
+
+            // Gets input text
+            var text = document.getElementById("inputText").value;
+
+            var ogText = text;
+
+            // Gets string length of input
+            var inputStringlen = text.length;
+
+            // Finds sqrt of length
+            var sqrtoflen = Math.sqrt(inputStringlen);
+
+            // Casts the sqrt to an int
+            var intsqrtoflen = Math.floor(sqrtoflen);
+
+            var twoDimensionalArraySize;
+
+            // Find the closest perfect square to the size of the input string
+            if (intsqrtoflen * intsqrtoflen == inputStringlen)
+
+                twoDimensionalArraySize = intsqrtoflen;
+
+            else twoDimensionalArraySize = intsqrtoflen + 1;
+
+            // Make string length a perfect square by appending "_" to the end
+            for (var i = 0; i < ((twoDimensionalArraySize * twoDimensionalArraySize) - inputStringlen); i++) {
+                text += "_";
+            }
+
+            // Turns our text string into a 1D array
+
+            var oneinputArr = Array.from(text);
+
+            // Replace (space) with _
+            for (var i = 0; i < oneinputArr.length; i++) {
+                if (oneinputArr[i] == ' ') {
+                    oneinputArr[i] = '_';
+                }
+                //console.log(oneinputArr[i]);
+            }
+
+            // Makes a 1D array
+            var initialArr = new Array(twoDimensionalArraySize);
+
+            // Loop to create 2D array using 1D array
+            for (var i = 0; i < initialArr.length; i++) {
+                initialArr[i] = new Array(twoDimensionalArraySize);
+            }
+
+            // Loop to initilize 2D array elements from char array above
+            for (var i = 0; i < twoDimensionalArraySize; i++) {
+                for (var j = 0; j < twoDimensionalArraySize; j++) {
+                    initialArr[i][j] = oneinputArr[i * twoDimensionalArraySize + j];
+                    console.log("2D Array[" + i + "][" + j + "] = " + initialArr[i][j] + "\n");
+                }
+            }
+
+            // Create a new 1D array
+            var finalArr = new Array(twoDimensionalArraySize);
+
+            // Loop to create 2D array using 1D array
+            for (var i = 0; i < finalArr.length; i++) {
+                finalArr[i] = new Array(twoDimensionalArraySize);
+            }
+
+            // Loop to swap I and J elements of 1st 2d array into 2nd 2D array
+            for (var i = 0; i < twoDimensionalArraySize; i++) {
+                for (var j = 0; j < twoDimensionalArraySize; j++) {
+                    finalArr[i][j] = initialArr[j][i]
+                    console.log("2D Array[" + i + "][" + j + "] = " + finalArr[i][j] + "\n");
+                }
+            }
+
+            // Take our final 2D array back into a 1D array
+            var finaloneDArr = [];
+
+            for (var i = 0; i < finalArr.length; i++) {
+                finaloneDArr = finaloneDArr.concat(finalArr[i]);
+            }
+
+            if (ogText.includes('_')) {
+                // Replace _ with (space)
+                for (var i = 0; i < finaloneDArr.length; i++) {
+                    if (finaloneDArr[i] == '_') {
+                        finaloneDArr[i] = ' ';
+                    }
+                    //console.log(finaloneDArr[i]);
+                }
+            }
+
+            // Join the 1D array into a string
+
+            var answer = finaloneDArr.join("");
+
+            // Print answer to screen
+            document.getElementById("outputText").value = answer;
+
+        }</script>
+
+    <script>function enter() {
+            if (event.keyCode == 13) {
+                document.getElementById('button').click();
+                document.getElementById("inputText").value = '';
+                event.preventDefault();
+            }
+        }</script>
+
+
+
+
+</head>
+<body>
+    <h1>
+        <a href="../index.html">Jacob Byerline's Porfolio</a>
+    </h1>
+    <h2>My Encryption Program</h2>
+
+    <h4 id='date'></h4>
+
+
+    <label for="inputText">Input:</label><br>
+    <textarea rows="15" cols = "30" placeholder="Enter text to be encrypted" type="text" id="inputText" onkeydown = "enter()"  style="border:solid 2px black;"></textarea><br><br>
+
+    <button id="button" onclick="Encrypt();">Encrypt</button><br>
+
+
+    <label for="outputText">Output:</label><br>
+    <textarea rows="15" cols = "30" placeholder="Encrypted text will appear here..." type="text" id="outputText"  style="border:solid 2px black;"></textarea><br>
+
+
+    <footer>
+
+        <p>
+            Contact information:<br> Email: <a href="mailto:jbyerline@gmail.com">
+                jbyerline@gmail.com<br>
+            </a>Cell: (619)341-9322
+        </p>
+        <p>Created by: Jacob Byerline</p>
+    </footer>
+
+</body>
+</html>
