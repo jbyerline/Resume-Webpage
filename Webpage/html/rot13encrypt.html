@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shift 13 Encryption</title>
+    <link rel="icon" href="../images/J-Icon.ico" type="image/ico">
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script async src="../javascript/index.js"></script>
+    <script>function Encrypt() {
+
+            // Gets input text
+            var text = document.getElementById("inputText").value;
+
+            // Convert to lower case
+            text = text.toLowerCase();
+
+            // Gets string length of input
+            var inputStringlen = text.length;
+
+            // Declare array objects
+            var charArr = Array.from(text);
+            var asciiArr = [];
+            var finalArr = [];
+            
+            // Load array with the ascii values of the input string
+            for(var i = 0; i < inputStringlen; i++){
+                asciiArr.push(charArr[i].charCodeAt(0));
+            }
+
+            //console.log(asciiArr);
+
+            // Modify the ascii value array
+            for(var x = 0; x < inputStringlen; x++){
+                // If the char is in a..z
+                if(asciiArr[x] > 96 && asciiArr[x] < 123){
+                    // Add 13 to ascii value
+                    asciiArr[x] = asciiArr[x] + 13
+                    // If after adding 13 you are no longer a letter
+                    if(asciiArr[x] > 122){
+                    // Subtract 26 to wrap around the alphabet
+                        asciiArr[x] = asciiArr[x] - 26
+                    }
+                }
+            }
+
+            //console.log(asciiArr);
+
+            // Convert ascii array back into char array
+            for(var i = 0; i < inputStringlen; i++){
+                var temp = (String.fromCharCode(asciiArr[i]));
+                finalArr.push(temp);
+            }
+
+            //console.log(finalArr);
+            
+            // Convert char array back into string
+            var answer = finalArr.join("");
+
+            // Print string answer to screen
+            document.getElementById("outputText").value = answer;
+
+        }</script>
+
+    <script>function enter() {
+            if (event.keyCode == 13) {
+                document.getElementById('button').click();
+                document.getElementById("inputText").value = '';
+                event.preventDefault();
+            }
+        }</script>
+
+
+
+
+</head>
+<body>
+    <h1>
+        <a href="../index.html">Jacob Byerline's Porfolio</a>
+    </h1>
+    <h2>Rotate 13 Encryption Program</h2>
+
+    <h4 id='date'></h4>
+
+
+    <label for="inputText">Input:</label><br>
+    <textarea rows="15" cols = "30" placeholder="Enter text to be encrypted" type="text" id="inputText" onkeydown = "enter()"  style="border:solid 2px black;"></textarea><br><br>
+
+    <button id="button" onclick="Encrypt();">Encrypt</button><br>
+
+
+    <label for="outputText">Output:</label><br>
+    <textarea rows="15" cols = "30" placeholder="Encrypted text will appear here..." type="text" id="outputText"  style="border:solid 2px black;"></textarea><br>
+
+
+    <footer>
+
+        <p>
+            Contact information:<br> Email: <a href="mailto:jbyerline@gmail.com">
+                jbyerline@gmail.com<br>
+            </a>Cell: (619)341-9322
+        </p>
+        <p>Created by: Jacob Byerline</p>
+    </footer>
+
+</body>
+</html>
